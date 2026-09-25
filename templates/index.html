@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Legal Clause Similarity Engine</title>
+
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <div class="header-content">
+
+            <div class="brand">
+                
+                <div class="brand-mark">
+                    <img
+                        src="/static/icons/legal.jpg"
+                        alt="Legal"
+                    >
+                </div>
+
+                <div>
+                    <h1>Legal Clause Similarity Engine</h1>
+
+                    <p>
+                        Find legally similar clauses using semantic search
+                        powered by Word2Vec and TF-IDF.
+                    </p>
+                </div>
+            </div>
+
+
+            <div class="social-links">
+
+                <a
+                    href="https://github.com/a-dinesh-kumar"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                >
+                    <img
+                        src="/static/icons/github.png"
+                        alt="GitHub"
+                    >
+                    <span>GitHub</span>
+                </a>
+
+
+                <a
+                    href="https://www.linkedin.com/in/dinesh-kumar-alagarsamy/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="LinkedIn"
+                >
+                    <img
+                        src="/static/icons/linkedin.png"
+                        alt="LinkedIn"
+                    >
+                    <span>LinkedIn</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- Search -->
+        <section class="search-card">
+
+            <div class="section-title">
+
+                <div class="section-icon">⌕</div>
+
+                <div>
+                    <h2>Enter a legal clause</h2>
+                </div>
+
+            </div>
+
+
+            <textarea
+                id="query"
+                placeholder="Example: The receiving party shall maintain confidentiality of all information..."
+                rows="5"
+            ></textarea>
+
+
+            <div class="search-controls">
+
+                <div class="results-control">
+
+                    <label for="topK">
+                        Results
+                    </label>
+
+                    <select id="topK">
+                        <option value="3">3</option>
+                        <option value="5" selected>5</option>
+                        <option value="10">10</option>
+                    </select>
+
+                </div>
+
+
+                <button
+                    id="searchButton"
+                    type="button"
+                >
+                    <span class="button-icon">⌕</span>
+                    Find Similar Clauses
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- Status -->
+        <div
+            id="status"
+            class="status"
+        ></div>
+
+
+        <!-- Results -->
+        <section class="results-section">
+
+            <div class="results-title">
+
+                <div class="section-icon document-icon">
+                    ▤
+                </div>
+
+                <h2>Similar Clauses</h2>
+
+            </div>
+
+
+            <div id="resultsList"></div>
+
+        </section>
+
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-left">
+            <h3>Legal Clause Similarity Engine</h3>
+            <p>
+                Find legally similar clauses using semantic search powered by
+                Word2Vec and TF-IDF.
+            </p>
+        </div>
+
+        <div class="footer-right">
+            <p>Powered by a trained Machine Learning model</p>
+        </div>
+    </footer>
+
+    <script src="/static/js/app.js"></script>
+
+</body>
+
+</html>

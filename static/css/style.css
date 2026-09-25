@@ -1,0 +1,622 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --background: #f3f7fc;
+    --card: #ffffff;
+    --primary: #1769d1;
+    --primary-dark: #1255aa;
+    --text: #172b4d;
+    --muted: #68778d;
+    --border: #dce6f2;
+    --soft-blue: #eaf3ff;
+    --soft-green: #e8f8f3;
+    --green: #0a9f82;
+}
+
+/* ============================================================
+   GLOBAL & LAYOUT STRUCTURE
+   ============================================================ */
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            rgba(48, 125, 220, 0.10),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at bottom right,
+            rgba(48, 125, 220, 0.07),
+            transparent 25%
+        ),
+        var(--background);
+
+    color: var(--text);
+    
+    /* Turn body into a flexbox to cleanly push footer down */
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* ============================================================
+   HEADER
+   ============================================================ */
+
+.header {
+    background: rgba(255, 255, 255, 0.88);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(10px);
+    flex-shrink: 0; /* Prevents header compression */
+}
+
+.header-content {
+    width: min(1180px, 92%);
+    min-height: 88px;
+    margin: 0 auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 30px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand-mark {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 2px solid var(--primary);
+    border-radius: 12px;
+
+    background: var(--soft-blue);
+
+    overflow: hidden;
+}
+
+.brand-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.brand h1 {
+    font-size: 24px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+}
+
+.brand p {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+
+/* ============================================================
+   SOCIAL LINKS
+   ============================================================ */
+
+.social-links {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+}
+
+.social-links a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+
+    text-decoration: none;
+    color: var(--text);
+
+    font-size: 12px;
+    font-weight: 600;
+
+    transition: opacity 0.2s ease;
+}
+
+.social-links a:hover {
+    opacity: 0.65;
+}
+
+.social-links img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+
+/* ============================================================
+   MAIN CONTAINER
+   ============================================================ */
+
+.container {
+    width: min(1060px, 92%);
+    margin: 28px auto 60px;
+    
+    /* Flex-grow expands container to push the footer down */
+    flex: 1 0 auto; 
+}
+
+
+/* ============================================================
+   SEARCH CARD
+   ============================================================ */
+
+.search-card {
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 1px solid var(--border);
+    border-radius: 12px;
+
+    padding: 28px;
+
+    box-shadow:
+        0 8px 30px rgba(35, 76, 120, 0.07);
+}
+
+.section-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 18px;
+}
+
+.section-title h2 {
+    font-size: 17px;
+}
+
+
+.section-icon {
+    width: 38px;
+    height: 38px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: var(--soft-blue);
+    color: var(--primary);
+
+    font-size: 23px;
+    font-weight: 700;
+}
+
+
+textarea {
+    width: 100%;
+
+    resize: vertical;
+
+    min-height: 120px;
+
+    padding: 15px;
+
+    border: 1px solid #cbd9e8;
+    border-radius: 8px;
+
+    background: #fcfdff;
+
+    color: var(--text);
+
+    font-family: inherit;
+    font-size: 14px;
+    line-height: 1.55;
+
+    outline: none;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+textarea::placeholder {
+    color: #9aabc0;
+}
+
+textarea:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(23, 105, 209, 0.10);
+}
+
+
+/* ============================================================
+   SEARCH CONTROLS
+   ============================================================ */
+
+.search-controls {
+    margin-top: 18px;
+
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.results-control {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.results-control label {
+    font-size: 13px;
+    font-weight: 600;
+}
+
+select {
+    width: 100px;
+
+    padding: 10px 12px;
+
+    border: 1px solid #cbd9e8;
+    border-radius: 7px;
+
+    background: #fff;
+
+    color: var(--text);
+    font-size: 14px;
+
+    outline: none;
+}
+
+
+button {
+    min-width: 205px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    padding: 12px 18px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: var(--primary);
+    color: #fff;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.1s ease;
+}
+
+button:hover {
+    background: var(--primary-dark);
+}
+
+button:active {
+    transform: translateY(1px);
+}
+
+button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.button-icon {
+    font-size: 18px;
+}
+
+
+/* ============================================================
+   STATUS
+   ============================================================ */
+
+.status {
+    min-height: 22px;
+
+    margin: 18px 4px;
+
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.status.success::before {
+    content: "●";
+
+    margin-right: 9px;
+
+    color: var(--green);
+}
+
+.status.error {
+    color: #b42318;
+}
+
+
+/* ============================================================
+   RESULTS
+   ============================================================ */
+
+.results-section {
+    margin-top: 22px;
+}
+
+.results-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-bottom: 16px;
+}
+
+.results-title h2 {
+    font-size: 21px;
+}
+
+.document-icon {
+    font-size: 19px;
+}
+
+
+/* ============================================================
+   RESULT CARD
+   ============================================================ */
+
+.result-card {
+    position: relative;
+
+    background: rgba(255, 255, 255, 0.96);
+
+    border: 1px solid var(--border);
+    border-radius: 10px;
+
+    padding: 20px 22px 20px 26px;
+
+    margin-bottom: 13px;
+
+    box-shadow:
+        0 5px 20px rgba(35, 76, 120, 0.055);
+
+    overflow: hidden;
+}
+
+.result-card::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 4px;
+
+    background: #4d9cff;
+}
+
+
+.result-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 10px;
+}
+
+
+.rank {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+
+    background: var(--soft-blue);
+    color: var(--primary);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+
+.score {
+    padding: 7px 11px;
+
+    border-radius: 20px;
+
+    background: var(--soft-green);
+    color: var(--green);
+
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+.clause-type {
+    display: inline-block;
+
+    margin-bottom: 10px;
+
+    padding: 5px 10px;
+
+    border-radius: 20px;
+
+    background: #eeedff;
+    color: #5750d8;
+
+    font-size: 11px;
+    font-weight: 600;
+}
+
+
+.clause-text {
+    color: #44546a;
+
+    font-size: 14px;
+    line-height: 1.65;
+}
+
+
+/* ============================================================
+   EMPTY STATE
+   ============================================================ */
+
+.empty {
+    padding: 25px;
+
+    border: 1px dashed var(--border);
+    border-radius: 8px;
+
+    color: var(--muted);
+    text-align: center;
+    font-size: 14px;
+}
+
+
+/* ============================================================
+   FOOTER (Fixed layout styles)
+   ============================================================ */
+
+.site-footer {
+    width: 100%;
+    max-width: 1180px;
+    margin: 40px auto 0;
+    padding: 24px 4%; /* Uses relative padding to stay responsive */
+    flex-shrink: 0; /* Prevents the footer from squishing */
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+
+    border-top: 1px solid var(--border);
+}
+
+.footer-left {
+    flex: 1;
+    min-width: 0;
+}
+
+.footer-left h3 {
+    margin: 0 0 6px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+}
+
+.footer-left p {
+    margin: 0;
+    max-width: 650px;
+
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--muted);
+}
+
+.footer-right {
+    flex-shrink: 0;
+    text-align: right;
+}
+
+.footer-right p {
+    margin: 0;
+
+    font-size: 13px;
+    color: var(--muted);
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 700px) {
+
+    .header-content {
+        padding: 18px 0;
+        align-items: flex-start;
+    }
+
+    .brand h1 {
+        font-size: 20px;
+    }
+
+    .brand p {
+        display: none;
+    }
+
+    .brand-mark {
+        width: 42px;
+        height: 42px;
+    }
+
+    .social-links {
+        gap: 12px;
+    }
+    
+    /* Responsive styles for your footer element */
+    .site-footer {
+        margin-top: 30px;
+        padding: 20px 4%;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .footer-left {
+        width: 100%;
+    }
+
+    .footer-left h3 {
+        font-size: 14px;
+    }
+
+    .footer-left p {
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .footer-right {
+        width: 100%;
+        text-align: left;
+    }
+    
+    .footer-right p {
+        font-size: 12px;
+    }
+}
